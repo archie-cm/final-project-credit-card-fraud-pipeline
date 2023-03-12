@@ -1,0 +1,5 @@
+pyarrow
+apache-airflow-providers-google
+pandas
+requests
+beautifulsoup4
