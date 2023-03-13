@@ -20,6 +20,15 @@ The objectives of this projects are described below:
 
 ## End-to-End Schema with Lambda Architecture
 
+## Tools
+Orchestration: Airflow
+
+Storage: Google Cloud Storage
+
+Warehouse: BigQuery
+
+Data Visualization: Tableau
+
 ## Reproducibility
 
 ## Data Visualization Dashboard
