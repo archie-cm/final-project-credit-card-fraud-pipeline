@@ -19,6 +19,32 @@ The objectives of this projects are described below:
 - Create an infrastructure as code which makes the codes reusable and scalable for another projects.
 
 ## End-to-End Schema with Lambda Architecture
+##### enter the directory
+
+##### Create infrastructure with Docker Compose
+```bash
+sudo docker-compose up
+```
+
+##### Install required Python packages
+```bash
+pip install -r requirements.txt
+```
+
+##### Run the producer to stream the data into the Kafka topic
+```bash
+python3 producer.py
+```
+
+##### Run the consumer to consume the data from Kafka topic and load them into BigQuery
+```bash
+python3 consumer.py
+```
+
+##### Open Confluent Control Center to monitor topic and schema registry
+```
+localhost:9021
+```
 
 ## Tools
 Orchestration: Airflow
