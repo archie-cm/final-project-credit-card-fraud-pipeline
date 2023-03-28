@@ -9,23 +9,23 @@ terraform {
 }
 
 provider "google" {
-  project = "dataanalyticscourse-327913"
-  region = "asia-southeast2"
-  credentials = file("../.google/credentials/google_credentials.json")  # Use this if you do not want to set env-var GOOGLE_APPLICATION_CREDENTIALS
+  project = var.project
+  region = var.region
+  // credentials = file(var.credentials)  # Use this if you do not want to set env-var GOOGLE_APPLICATION_CREDENTIALS
 }
 
 # Data Lake Bucket
 # Ref: https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket
 resource "google_storage_bucket" "data-lake-bucket" {
-  name          = "line-webtoon-insight_dataanalyticscourse-327913" # Concatenating DL bucket & Project name for unique naming
-  location      = "asia-southeast2"
+  name          = "${local.data_lake_bucket}_${var.project}" # Concatenating DL bucket & Project name for unique naming
+  location      = var.region
 
   # Optional, but recommended settings:
-  storage_class = "STANDARD"
+  storage_class = var.storage_class
   uniform_bucket_level_access = true
 
   versioning {
-    enabled = false
+    enabled     = true
   }
 
   lifecycle_rule {
@@ -43,7 +43,7 @@ resource "google_storage_bucket" "data-lake-bucket" {
 # DWH
 # Ref: https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset
 resource "google_bigquery_dataset" "dataset" {
-  dataset_id = "line_webtoon_insight"
-  project    = "dataanalyticscourse-327913"
-  location   = "asia-southeast2"
+  dataset_id = var.BQ_DATASET
+  project    = var.project
+  location   = var.region
 }
