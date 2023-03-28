@@ -1,0 +1,205 @@
+version: 2
+
+sources:
+  - name: final_project
+    schema: final_project
+    description: Pipeline dataset regarding the detection of fraudulent transactions.
+    tables:
+      - name: raw_credit_card
+        identifier: raw_credit_card
+
+models:
+  - name: stg__credit_card
+    description: A temporary area where the most recent data is stored after batch processing.
+    columns:
+      - name: ID
+        description: Primary key from this table & Client number
+        tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn
+      - name: CODE_GENDER
+        description: Gender of customer
+        tests:
+          - not_null:
+              severity: warn
+      - name: FLAG_OWN_CAR
+        description: Is there a car
+        tests:
+          - not_null:
+              severity: warn
+      - name: FLAG_OWN_REALTY
+        description: Is there a property
+        tests:
+          - not_null:
+              severity: warn
+      - name: CNT_CHILDREN
+        description: Number of children.
+        name: AMT_INCOME_TOTAL
+        description: Annual income.
+      - name: NAME_INCOME_TYPE
+        description: >
+          Income category, including:
+            1. Working
+            2. Commercial associate
+            3. Pensioner
+            4. State servant
+            5. Student
+        tests:
+          - not_null:
+              severity: warn
+          - accepted_values:
+              values: ['Working', 'Commercial associate', 'Pensioner', 'State servant', 'Student']
+              severity: warn
+      - name: NAME_EDUCATION_TYPE
+        description: >
+          Education level, including:
+            1. Lower secondary
+            2. Secondary / secondary special
+            3. Incomplete higher
+            4. Higher education
+            5. Academic degree
+        tests:
+          - not_null:
+              severity: warn
+          - accepted_values:
+              values: ['Lower secondary', 'Secondary / secondary special', 'Incomplete higher', 'Higher education', 'Academic degree']
+              severity: warn
+      - name: NAME_FAMILY_TYPE
+        description: > 
+          Marital status, including:
+            1. Married
+            2. Single / not married
+            3. Civil marriage
+            4. Separated
+            5. Widow
+        tests:
+          - not_null:
+              severity: warn
+          - accepted_values:
+              values: ['Married', 'Single / not married', 'Civil marriage', 'Separated', 'Widow']
+              severity: warn
+      - name: NAME_HOUSING_TYPE
+        description: > 
+          Way of living, including:
+            1. House / apartment
+            2. With parents
+            3. Municipal apartment
+            4. Rented apartment
+            5. Office apartment
+            6. Co-op apartment
+        tests:
+          - not_null:
+              severity: warn
+          - accepted_values:
+              values: ['House / apartment', 'With parents', 'Municipal apartment', 'Rented apartment', 'Office apartment', 'Co-op apartment']
+              severity: warn
+      - name: FLAG_MOBIL
+        description: Is there a mobile phone
+        tests:
+          - not_null:
+              severity: warn
+      - name: FLAG_WORK_PHONE
+        description: Is there a work phone
+        tests:
+          - not_null:
+              severity: warn
+      - name: FLAG_PHONE
+        description: Is there a phone
+        tests:
+          - not_null:
+              severity: warn
+      - name: FLAG_EMAIL
+        description: Is there an email
+        tests:
+          - not_null:
+              severity: warn
+      - name: OCCUPATION_TYPE
+        description: > 
+          Occupation, including:
+            1. Null
+            2. Laborers
+            3. Core staff
+            4. Sales staff
+            5. Managers
+            6. Drivers
+            7. High skill tech staff
+            8. Accountants
+            9. Medicine staff
+            10. Cooking staff
+            11. Security staff
+            12. Cleaning staff
+            13. Private service staff
+            14. Low-skill Laborers
+            15. Secretaries
+            16. Waiters/barmen staff
+            17. Realty agents
+            18. HR staff
+            19. IT staff
+      - name: CNT_FAM_MEMBERS
+        description: Family size
+        tests:
+          - not_null:
+              severity: warn
+      - name: YEARS_BIRTH
+        description: Birthday
+        tests:
+          - not_null:
+              severity: warn
+      - name: YEARS_EMPLOYED
+        description: Start date of employment
+        tests:
+          - not_null:
+              severity: warn
+
+  - name: clustered__ASSET_CAR
+    description: >
+      Clustered View by Fraud Status, aims to:
+      Automatically organized based on the contents of one or more columns in the table’s schema.
+  
+  - name: clustered__ASSET
+    description: >
+      Clustered View by Payment Type, aims to:
+      Automatically organized based on the contents of one or more columns in the table’s schema.
+  
+  - name: clustered__INCOME
+    description: >
+      Clustered View by Payment Type, aims to:
+      Automatically organized based on the contents of one or more columns in the table’s schema.
+  
+  - name: clustered__MARITAL
+    description: >
+      Clustered View by Payment Type, aims to:
+      Automatically organized based on the contents of one or more columns in the table’s schema.
+      
+  - name: dim__EDUCATION
+    description: List of unique payment type.
+      
+  - name: dim__HOUSING
+    description: List of unique recipient's name.
+      
+  - name: dim__INCOME
+    description: List of unique sender's name.
+
+  - name: dim__JOB
+    description: List of unique sender's name.
+
+  - name: dim__MARITAL
+    description: List of unique sender's name.
+
+  - name: fact__tables
+    description: >
+      The table contains records where both (fraud and not fraud status) are valid. 
+      Each record corresponds to a trip uniquely identified by id_transactions.
+      
+  - name: nested__recipient
+    description: >
+      Nested for Repeated Fields by name_recipient, aims to: represent foreign entities inline.
+      
+  - name: partitioned__dates
+    description: >
+      Partitioned View by Date, aims to:
+      1. Easier to manage and query data
+      2. Improve query performance
+      3. Control costs by reducing the number of bytes read by a query
