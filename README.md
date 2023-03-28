@@ -41,9 +41,24 @@ python3 producer.py
 python3 consumer.py
 ```
 
-##### Open Confluent Control Center to monitor topic and schema registry
+##### Open Spark to monitor Spark master and Spark workers
 ```
-localhost:9021
+localhost:8080
+```
+
+##### Open Airflow with username and password "airflow" to run the DAG
+```
+localhost:8090
+```
+
+##### Open Kafka Connect to view the active connectors
+```
+localhost:8083/connectors
+```
+
+##### Open Schema Registry to view the active schemas
+```
+localhost:8081/schemas
 ```
 
 ## Tools
