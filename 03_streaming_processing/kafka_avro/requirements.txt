@@ -1,3 +1,0 @@
-avro-python3==1.10.2
-requests==2.18.4
-confluent-kafka==1.9.2
