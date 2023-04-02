@@ -1,0 +1,8 @@
+{
+  "namespace": "com.example.avro",
+  "type": "record",
+  "name": "ApplicationRecordKey",
+  "fields": [
+    {"name": "ID", "type": "int"}
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "namespace": "com.example.avro",
+  "type": "record",
+  "name": "ApplicationRecordValue",
+  "fields": [
+    {"name": "ID", "type": "int"},
+    {"name": "CODE_GENDER", "type": "string"},
+    {"name": "FLAG_OWN_CAR", "type": "string"},
+    {"name": "FLAG_OWN_REALTY", "type": "string"},
+    {"name": "CNT_CHILDREN", "type": "int"},
+    {"name": "AMT_INCOME_TOTAL", "type": "float"},
+    {"name": "NAME_INCOME_TYPE", "type": "string"},
+    {"name": "NAME_EDUCATION_TYPE", "type": "string"},
+    {"name": "NAME_FAMILY_STATUS", "type": "string"},
+    {"name": "NAME_HOUSING_TYPE", "type": "string"},
+    {"name": "DAYS_BIRTH", "type": "int"},
+    {"name": "DAYS_EMPLOYED", "type": "int"},
+    {"name": "FLAG_MOBIL", "type": "int"},
+    {"name": "FLAG_WORK_PHONE", "type": "int"},
+    {"name": "FLAG_PHONE", "type": "int"},
+    {"name": "FLAG_EMAIL", "type": "int"},
+    {"name": "OCCUPATION_TYPE", "type": "string"},
+    {"name": "CNT_FAM_MEMBERS", "type": "float"}
+  ]
+}
