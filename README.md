@@ -18,7 +18,7 @@ The objectives of this projects are described below:
 - Create a visualization dashboard to get insights from the data, which can be used for business decisions.
 - Create an infrastructure as code which makes the codes reusable and scalable for another projects.
 
-## End-to-End Schema with Lambda Architecture
+## Data Pipeline
 ![image](https://user-images.githubusercontent.com/108534539/230115233-4fb03230-53f4-4e25-a70d-11cbd7beb4c8.png)
 
 ## Tools
@@ -48,9 +48,28 @@ using this following services:
 - Google Looker Studio (cost is based from number of Looker Blocks (data models and visualizations), users, and the number of queries processed per month)
 > Total cost around 6$ out of 300$ free credits that GCP provided
 
-## Guide Installation
+## Project Instruction
+##### Clone this repository and enter the directory
+```bash
+git clone https://github.com/yevadrian/big-data-lambda-architecture && cd big-data-lambda-architecture
+```
 
-##### enter the directory
+
+### Create a file named "service-account.json" containing your Google service account credentials
+```json
+{
+  "type": "service_account",
+  "project_id": "[PROJECT_ID]",
+  "private_key_id": "[KEY_ID]",
+  "private_key": "-----BEGIN PRIVATE KEY-----\n[PRIVATE_KEY]\n-----END PRIVATE KEY-----\n",
+  "client_email": "[SERVICE_ACCOUNT_EMAIL]",
+  "client_id": "[CLIENT_ID]",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/[SERVICE_ACCOUNT_EMAIL]"
+}
+```
 
 ##### Create batch pipeline with Docker Compose
 ```bash
