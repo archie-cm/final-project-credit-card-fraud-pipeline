@@ -81,10 +81,14 @@ sudo docker-compose up
 localhost:8090
 ```
 
+![image](https://user-images.githubusercontent.com/108534539/230137434-ca2e097f-2003-4cf1-8578-a1bc69c0f73d.png)
+
 ##### Open Spark to monitor Spark master and Spark workers
 ```
 localhost:8080
 ```
+![image](https://user-images.githubusercontent.com/108534539/230136347-1fe5de5e-3585-4b04-8665-a14512f0efe3.png)
+
 
 ##### Enter the directory Streaming pipeline
 ```bash
