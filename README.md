@@ -19,6 +19,8 @@ The objectives of this projects are described below:
 - Create an infrastructure as code which makes the codes reusable and scalable for another projects.
 
 ## End-to-End Schema with Lambda Architecture
+![image](https://user-images.githubusercontent.com/108534539/230115233-4fb03230-53f4-4e25-a70d-11cbd7beb4c8.png)
+
 ##### enter the directory
 
 ##### Create infrastructure with Docker Compose
@@ -64,8 +66,6 @@ Storage: Google Cloud Storage
 Warehouse: BigQuery
 
 Data Visualization: Looker
-
-![image](https://user-images.githubusercontent.com/108534539/230115233-4fb03230-53f4-4e25-a70d-11cbd7beb4c8.png)
 
 ## Reproducibility
 ![Screenshot (189)](https://user-images.githubusercontent.com/108534539/230118957-612b63c8-4edd-4aaa-9700-92b439ff870a.png)
