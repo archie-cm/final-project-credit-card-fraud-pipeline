@@ -63,7 +63,7 @@ Storage: Google Cloud Storage
 
 Warehouse: BigQuery
 
-Data Visualization: Tableau
+Data Visualization: Looker
 
 ![image](https://user-images.githubusercontent.com/108534539/230053903-92cccc7e-dcc4-4529-bbad-82911f2dedbd.png)
 
