@@ -70,6 +70,8 @@ Warehouse: BigQuery
 
 Data Visualization: Tableau
 
+![image](https://user-images.githubusercontent.com/108534539/230053903-92cccc7e-dcc4-4529-bbad-82911f2dedbd.png)
+
 ## Reproducibility
 
 ## Data Visualization Dashboard
