@@ -23,12 +23,12 @@ The objectives of this projects are described below:
 
 ## Tools
 
-Orchestration: Airflow
-Compute : Virtual Machine (VM) instance
-Container : Docker
-Storage: Google Cloud Storage
-Warehouse: BigQuery
-Data Visualization: Looker
+- Orchestration: Airflow
+- Compute : Virtual Machine (VM) instance
+- Container : Docker
+- Storage: Google Cloud Storage
+- Warehouse: BigQuery
+- Data Visualization: Looker
 
 ## Reproducibility
 ![Screenshot (189)](https://user-images.githubusercontent.com/108534539/230118957-612b63c8-4edd-4aaa-9700-92b439ff870a.png)
