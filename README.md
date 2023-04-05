@@ -22,17 +22,16 @@ The objectives of this projects are described below:
 ![image](https://user-images.githubusercontent.com/108534539/230115233-4fb03230-53f4-4e25-a70d-11cbd7beb4c8.png)
 
 ## Tools
+
 Orchestration: Airflow
-
+Compute : Virtual Machine (VM) instance
+Container : Docker
 Storage: Google Cloud Storage
-
 Warehouse: BigQuery
-
 Data Visualization: Looker
 
 ## Reproducibility
 ![Screenshot (189)](https://user-images.githubusercontent.com/108534539/230118957-612b63c8-4edd-4aaa-9700-92b439ff870a.png)
-
 
 ## Data Visualization Dashboard
 ![Screenshot (188)](https://user-images.githubusercontent.com/108534539/230117610-c579e654-8bf5-487b-be4f-f0354212f220.png)
@@ -58,6 +57,26 @@ using this following services:
 sudo docker-compose up
 ```
 
+##### Open Airflow with username and password "airflow" to run the DAG
+```
+localhost:8090
+```
+
+##### Open Spark to monitor Spark master and Spark workers
+```
+localhost:8080
+```
+
+##### Enter the directory Streaming pipeline
+```bash
+sudo docker-compose up
+```
+
+##### Create batch pipeline with Docker Compose
+```bash
+sudo docker-compose up
+```
+
 ##### Install required Python packages
 ```bash
 pip install -r requirements.txt
@@ -71,16 +90,6 @@ python3 producer.py
 ##### Run the consumer to consume the data from Kafka topic and load them into BigQuery
 ```bash
 python3 consumer.py
-```
-
-##### Open Spark to monitor Spark master and Spark workers
-```
-localhost:8080
-```
-
-##### Open Airflow with username and password "airflow" to run the DAG
-```
-localhost:8090
 ```
 
 ##### Open Schema Registry to view the active schemas
