@@ -115,8 +115,17 @@ python3 producer.py
 python3 consumer.py
 ```
 
+![Screenshot (190)](https://user-images.githubusercontent.com/108534539/230141794-eb04880c-bf5e-4566-aa94-cbe8501e6e3f.png)
+
+##### Open Confluent to view the topic
+```
+localhost:9021
+```
+![image](https://user-images.githubusercontent.com/108534539/230141014-bb9ef28b-af25-4fa8-b49a-ce5ef8f69aa2.png)
+
 ##### Open Schema Registry to view the active schemas
 ```
 localhost:8081/schemas
 ```
+![image](https://user-images.githubusercontent.com/108534539/230141266-c959f01b-b51e-4dc4-8adf-39cd820f466a.png)
 
