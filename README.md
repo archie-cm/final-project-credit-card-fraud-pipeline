@@ -70,6 +70,10 @@ Data Visualization: Looker
 ## Reproducibility
 
 ## Data Visualization Dashboard
+![Screenshot (188)](https://user-images.githubusercontent.com/108534539/230117610-c579e654-8bf5-487b-be4f-f0354212f220.png)
+
+![Screenshot (187)](https://user-images.githubusercontent.com/108534539/230117643-9577559c-ac6d-4e47-8dcf-4af817646479.png)
+
 
 ## Google Cloud Usage Billing Report
 Data infrastructure we used in this project are entirely built on Google Cloud Platform with more or less 3 weeks of project duration, 
@@ -77,9 +81,7 @@ using this following services:
 - Google Cloud Storage (pay for what you use)
 - Google BigQuery (first terrabyte processed are free of charge)
 - Google Looker Studio (cost is based from number of Looker Blocks (data models and visualizations), users, and the number of queries processed per month)
-- Pub/sub (cost is based from amount of data exchanged)
-- Dataflow (cost is based on duration of processing job and number of resources utilized)
-> Total cost around 51$ out of 300$ free credits that GCP provided
+> Total cost around 6$ out of 300$ free credits that GCP provided
 
 ## Resources
 
