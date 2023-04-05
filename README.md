@@ -68,6 +68,8 @@ Data Visualization: Looker
 ![image](https://user-images.githubusercontent.com/108534539/230115233-4fb03230-53f4-4e25-a70d-11cbd7beb4c8.png)
 
 ## Reproducibility
+![Screenshot (189)](https://user-images.githubusercontent.com/108534539/230118957-612b63c8-4edd-4aaa-9700-92b439ff870a.png)
+
 
 ## Data Visualization Dashboard
 ![Screenshot (188)](https://user-images.githubusercontent.com/108534539/230117610-c579e654-8bf5-487b-be4f-f0354212f220.png)
