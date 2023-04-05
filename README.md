@@ -51,11 +51,6 @@ localhost:8080
 localhost:8090
 ```
 
-##### Open Kafka Connect to view the active connectors
-```
-localhost:8083/connectors
-```
-
 ##### Open Schema Registry to view the active schemas
 ```
 localhost:8081/schemas
