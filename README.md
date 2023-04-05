@@ -81,6 +81,7 @@ Data Visualization: Looker
 Data infrastructure we used in this project are entirely built on Google Cloud Platform with more or less 3 weeks of project duration, 
 using this following services:
 - Google Cloud Storage (pay for what you use)
+- Virtual Machine (VM) instance (cost are based Vcpu & memory and storage disk)
 - Google BigQuery (first terrabyte processed are free of charge)
 - Google Looker Studio (cost is based from number of Looker Blocks (data models and visualizations), users, and the number of queries processed per month)
 > Total cost around 6$ out of 300$ free credits that GCP provided
