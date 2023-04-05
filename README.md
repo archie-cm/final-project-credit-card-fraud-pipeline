@@ -51,7 +51,7 @@ using this following services:
 ## Project Instruction
 ##### Clone this repository and enter the directory
 ```bash
-git clone https://github.com/yevadrian/big-data-lambda-architecture && cd big-data-lambda-architecture
+git clone https://github.com/archie-cm/final-project-credit-card-fraud-pipeline.git && cd final-project-credit-card-fraud-pipeline
 ```
 
 
@@ -92,7 +92,7 @@ localhost:8080
 
 ##### Enter the directory Streaming pipeline
 ```bash
-sudo docker-compose up
+cd kafka
 ```
 
 ##### Create batch pipeline with Docker Compose
