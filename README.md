@@ -65,7 +65,7 @@ Warehouse: BigQuery
 
 Data Visualization: Looker
 
-![image](https://user-images.githubusercontent.com/108534539/230053903-92cccc7e-dcc4-4529-bbad-82911f2dedbd.png)
+![image](https://user-images.githubusercontent.com/108534539/230115233-4fb03230-53f4-4e25-a70d-11cbd7beb4c8.png)
 
 ## Reproducibility
 
