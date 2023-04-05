@@ -21,9 +21,39 @@ The objectives of this projects are described below:
 ## End-to-End Schema with Lambda Architecture
 ![image](https://user-images.githubusercontent.com/108534539/230115233-4fb03230-53f4-4e25-a70d-11cbd7beb4c8.png)
 
+## Tools
+Orchestration: Airflow
+
+Storage: Google Cloud Storage
+
+Warehouse: BigQuery
+
+Data Visualization: Looker
+
+## Reproducibility
+![Screenshot (189)](https://user-images.githubusercontent.com/108534539/230118957-612b63c8-4edd-4aaa-9700-92b439ff870a.png)
+
+
+## Data Visualization Dashboard
+![Screenshot (188)](https://user-images.githubusercontent.com/108534539/230117610-c579e654-8bf5-487b-be4f-f0354212f220.png)
+
+![Screenshot (187)](https://user-images.githubusercontent.com/108534539/230117643-9577559c-ac6d-4e47-8dcf-4af817646479.png)
+
+
+## Google Cloud Usage Billing Report
+Data infrastructure we used in this project are entirely built on Google Cloud Platform with more or less 3 weeks of project duration, 
+using this following services:
+- Google Cloud Storage (pay for what you use)
+- Virtual Machine (VM) instance (cost are based Vcpu & memory and storage disk)
+- Google BigQuery (first terrabyte processed are free of charge)
+- Google Looker Studio (cost is based from number of Looker Blocks (data models and visualizations), users, and the number of queries processed per month)
+> Total cost around 6$ out of 300$ free credits that GCP provided
+
+## Guide Installation
+
 ##### enter the directory
 
-##### Create infrastructure with Docker Compose
+##### Create batch pipeline with Docker Compose
 ```bash
 sudo docker-compose up
 ```
@@ -57,34 +87,4 @@ localhost:8090
 ```
 localhost:8081/schemas
 ```
-
-## Tools
-Orchestration: Airflow
-
-Storage: Google Cloud Storage
-
-Warehouse: BigQuery
-
-Data Visualization: Looker
-
-## Reproducibility
-![Screenshot (189)](https://user-images.githubusercontent.com/108534539/230118957-612b63c8-4edd-4aaa-9700-92b439ff870a.png)
-
-
-## Data Visualization Dashboard
-![Screenshot (188)](https://user-images.githubusercontent.com/108534539/230117610-c579e654-8bf5-487b-be4f-f0354212f220.png)
-
-![Screenshot (187)](https://user-images.githubusercontent.com/108534539/230117643-9577559c-ac6d-4e47-8dcf-4af817646479.png)
-
-
-## Google Cloud Usage Billing Report
-Data infrastructure we used in this project are entirely built on Google Cloud Platform with more or less 3 weeks of project duration, 
-using this following services:
-- Google Cloud Storage (pay for what you use)
-- Virtual Machine (VM) instance (cost are based Vcpu & memory and storage disk)
-- Google BigQuery (first terrabyte processed are free of charge)
-- Google Looker Studio (cost is based from number of Looker Blocks (data models and visualizations), users, and the number of queries processed per month)
-> Total cost around 6$ out of 300$ free credits that GCP provided
-
-## Resources
 
