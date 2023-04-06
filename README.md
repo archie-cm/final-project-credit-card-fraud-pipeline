@@ -76,9 +76,9 @@ git clone https://github.com/archie-cm/final-project-credit-card-fraud-pipeline.
 
 2. Enable IAM API and IAM Credential API in GCP.
 
-3. Change directory to `01_terraform` by executing
+3. Change directory to `terraform` by executing
 ```
-cd 01_terraform
+cd terraform
 ```
 
 4. Initialize Terraform (set up environment and install Google provider)
