@@ -70,6 +70,30 @@ git clone https://github.com/archie-cm/final-project-credit-card-fraud-pipeline.
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/[SERVICE_ACCOUNT_EMAIL]"
 }
 ```
+#### Cloud Resource Provisioning with Terraform
+
+1. Install `gcloud` SDK, `terraform` CLI, and create a GCP project. Then, create a service account with **Storage Admin**, **Storage Pbject Admin**, and **BigQuery Admin** role. Download the JSON credential and store it on `service-account.json`. Open `terraform/main.tf` in a text editor, and fill your GCP's project id.
+
+2. Enable IAM API and IAM Credential API in GCP.
+
+3. Change directory to `01_terraform` by executing
+```
+cd 01_terraform
+```
+
+4. Initialize Terraform (set up environment and install Google provider)
+```
+terraform init
+```
+5. Plan Terraform infrastructure creation
+```
+terraform plan
+```
+6. Create new infrastructure by applying Terraform plan
+```
+terraform apply
+```
+7. Check GCP console to see newly-created resources.
 
 ##### Create batch pipeline with Docker Compose
 ```bash
