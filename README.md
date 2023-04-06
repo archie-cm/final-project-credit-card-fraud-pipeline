@@ -49,7 +49,7 @@ using this following services:
 > Total cost around 6$ out of 300$ free credits that GCP provided
 
 ## Project Instruction
-##### Clone this repository and enter the directory
+### Clone this repository and enter the directory
 ```bash
 git clone https://github.com/archie-cm/final-project-credit-card-fraud-pipeline.git && cd final-project-credit-card-fraud-pipeline
 ```
