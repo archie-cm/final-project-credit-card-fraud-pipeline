@@ -95,7 +95,7 @@ terraform apply
 ```
 7. Check GCP console to see newly-created resources.
 
-##### Create batch pipeline with Docker Compose
+#### Create batch pipeline with Docker Compose
 ```bash
 sudo docker-compose up
 ```
@@ -119,7 +119,7 @@ localhost:8080
 cd kafka
 ```
 
-##### Create batch pipeline with Docker Compose
+#### Create streaming pipeline with Docker Compose
 ```bash
 sudo docker-compose up
 ```
