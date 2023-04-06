@@ -114,12 +114,12 @@ localhost:8080
 ![image](https://user-images.githubusercontent.com/108534539/230136347-1fe5de5e-3585-4b04-8665-a14512f0efe3.png)
 
 
-##### Enter the directory Streaming pipeline
+#### Enter the directory Streaming pipeline
 ```bash
 cd kafka
 ```
 
-#### Create streaming pipeline with Docker Compose
+##### Create streaming pipeline with Docker Compose
 ```bash
 sudo docker-compose up
 ```
