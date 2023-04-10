@@ -7,7 +7,6 @@ x-airflow-common:
   build:
     context: .
     dockerfile: ./Dockerfile
-  image: apache/airflow:latest
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
@@ -18,7 +17,7 @@ x-airflow-common:
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKEND: 'airflow.api.auth.backend.basic_auth'
-    _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- dbt-bigquery==1.0.0}
+    _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
     GOOGLE_APPLICATION_CREDENTIALS: /opt/airflow/service-account.json
     AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT: 'google-cloud-platform://?extra__google_cloud_platform__key_path=/opt/airflow/service-account.json'
     DBT_PROFILES_DIR: /opt/airflow/dbt
@@ -28,14 +27,11 @@ x-airflow-common:
     
   volumes:
     - ./dags:/opt/airflow/dags
-    - ./dbt/macros:/opt/airflow/dbt/macros
-    - ./dbt/models:/opt/airflow/dbt/models
-    - ./dbt/seeds:/opt/airflow/dbt/seeds
+    - ./logs:/opt/airflow/logs
+    - ./plugins:/opt/airflow/plugins
     - ../dbt:/dbt
-    - ./datasets:/opt/airflow/datasets
-    - ./spark:/opt/airflow/spark
-    - ./spark-bigquery.jar:/opt/airflow/spark-bigquery.jar
-    - ./kafka:/opt/airflow/kafka
+    - ~/dbt:/dbt
+    - ~/spark:/opt/airflow/spark
     - ~/.dbt:/home/airflow/.dbt:ro
     - ./service-account.json:/opt/airflow/service-account.json
    
@@ -243,26 +239,6 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
-
-  spark-master:
-    container_name: spark-master
-    image: bitnami/spark:latest
-    ports:
-    - 8080:8080
-    environment:
-      SPARK_MODE: master
-    restart: always
-
-  spark-worker:
-    container_name: spark-worker
-    image: bitnami/spark:latest
-    environment:
-      SPARK_MODE: worker
-      SPARK_MASTER_URL: spark://spark-master:7077
-    restart: always
-    volumes:
-      - ./spark-bigquery.jar:/opt/airflow/spark-bigquery.jar
-      - ./spark:/spark # Spark scripts folder (Must be the same path in airflow and Spark Cluster)
 
 volumes:
   postgres-db-volume:
