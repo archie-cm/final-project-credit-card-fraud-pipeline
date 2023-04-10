@@ -1,0 +1,63 @@
+
+
+============================== 2023-04-10 02:24:41.476954 | de6e04ec-1d12-4652-a209-a2e350be2a11 ==============================
+[0m02:24:41.476954 [info ] [MainThread]: Running with dbt=1.4.5
+[0m02:24:41.480202 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/home/Archie/.dbt', 'send_anonymous_usage_stats': True, 'quiet': False, 'no_print': False, 'cache_selected_only': False, 'which': 'deps', 'rpc_method': 'deps', 'indirect_selection': 'eager'}
+[0m02:24:41.480821 [debug] [MainThread]: Tracking: tracking
+[0m02:24:41.491310 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbdeddb0310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbdea538310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbdea538160>]}
+[0m02:24:41.493655 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m02:24:41.494849 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbdeddb0310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbdea538160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbdea538b80>]}
+[0m02:24:41.495587 [debug] [MainThread]: Flushing usage events
+
+
+============================== 2023-04-10 02:27:10.762724 | 134c9065-9459-49f2-b391-60a83e2bbb84 ==============================
+[0m02:27:10.762724 [info ] [MainThread]: Running with dbt=1.4.5
+[0m02:27:10.767252 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/home/Archie/.dbt', 'send_anonymous_usage_stats': True, 'quiet': False, 'no_print': False, 'cache_selected_only': False, 'which': 'deps', 'rpc_method': 'deps', 'indirect_selection': 'eager'}
+[0m02:27:10.767976 [debug] [MainThread]: Tracking: tracking
+[0m02:27:10.778328 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6d51d9e100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6d4e523370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6d4e523910>]}
+[0m02:27:10.779891 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m02:27:10.782000 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6d51d9e100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6d4e523d30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6d4e523370>]}
+[0m02:27:10.783186 [debug] [MainThread]: Flushing usage events
+
+
+============================== 2023-04-10 02:27:48.111784 | 7fe1e3cf-68e8-44d0-940d-20e5c5ec4501 ==============================
+[0m02:27:48.111784 [info ] [MainThread]: Running with dbt=1.4.5
+[0m02:27:48.115288 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/home/Archie/.dbt', 'send_anonymous_usage_stats': True, 'quiet': False, 'no_print': False, 'cache_selected_only': False, 'which': 'deps', 'rpc_method': 'deps', 'indirect_selection': 'eager'}
+[0m02:27:48.116468 [debug] [MainThread]: Tracking: tracking
+[0m02:27:48.127574 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f98ad5d5760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f98ad558580>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f98ad558340>]}
+[0m02:27:48.129355 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m02:27:48.130884 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f98ad5d5760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f98ad558940>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f98ad558580>]}
+[0m02:27:48.131491 [debug] [MainThread]: Flushing usage events
+
+
+============================== 2023-04-10 02:29:33.213428 | a338d976-df60-411a-9464-10259f9f959b ==============================
+[0m02:29:33.213428 [info ] [MainThread]: Running with dbt=1.4.5
+[0m02:29:33.217577 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/home/Archie/.dbt', 'send_anonymous_usage_stats': True, 'quiet': False, 'no_print': False, 'cache_selected_only': False, 'which': 'deps', 'rpc_method': 'deps', 'indirect_selection': 'eager'}
+[0m02:29:33.218660 [debug] [MainThread]: Tracking: tracking
+[0m02:29:33.233047 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f26aef46700>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f26aef467c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f26aef460d0>]}
+[0m02:29:33.235426 [debug] [MainThread]: Set downloads directory='/tmp/dbt-downloads-5zrl4nl4'
+[0m02:29:33.236806 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m02:29:33.342574 [debug] [MainThread]: Response from registry index: GET https://hub.getdbt.com/api/v1/index.json 200
+[0m02:29:33.344521 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json
+[0m02:29:33.382382 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json 200
+[0m02:29:33.398303 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/calogica/dbt_expectations.json
+[0m02:29:33.431862 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/calogica/dbt_expectations.json 200
+[0m02:29:33.447758 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/calogica/dbt_date.json
+[0m02:29:33.501425 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/calogica/dbt_date.json 200
+[0m02:29:33.559410 [info ] [MainThread]: Installing dbt-labs/dbt_utils
+[0m02:29:33.949577 [info ] [MainThread]:   Installed from version 0.8.0
+[0m02:29:33.953366 [info ] [MainThread]:   Updated version available: 1.0.0
+[0m02:29:33.955953 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'package', 'label': 'a338d976-df60-411a-9464-10259f9f959b', 'property_': 'install', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f26aef46ac0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f26aef469a0>]}
+[0m02:29:33.965447 [info ] [MainThread]: Installing calogica/dbt_expectations
+[0m02:29:34.559615 [info ] [MainThread]:   Installed from version 0.8.5
+[0m02:29:34.565797 [info ] [MainThread]:   Up to date!
+[0m02:29:34.567850 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'package', 'label': 'a338d976-df60-411a-9464-10259f9f959b', 'property_': 'install', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f26aef46e50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f26aef9b490>]}
+[0m02:29:34.568848 [info ] [MainThread]: Installing calogica/dbt_date
+[0m02:29:34.796266 [info ] [MainThread]:   Installed from version 0.7.2
+[0m02:29:34.806270 [info ] [MainThread]:   Up to date!
+[0m02:29:34.808208 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'package', 'label': 'a338d976-df60-411a-9464-10259f9f959b', 'property_': 'install', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f26aef46e50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f26aef9bd30>]}
+[0m02:29:34.809301 [info ] [MainThread]: 
+[0m02:29:34.821688 [info ] [MainThread]: Updates available for packages: ['dbt-labs/dbt_utils']                 
+Update your versions in packages.yml, then run dbt deps
+[0m02:29:34.826236 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f26aef425b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f26aef46880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f26aef46d00>]}
+[0m02:29:34.826979 [debug] [MainThread]: Flushing usage events
