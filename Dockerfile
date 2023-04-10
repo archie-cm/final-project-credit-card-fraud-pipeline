@@ -33,4 +33,4 @@ USER airflow
 RUN pip install dbt-bigquery
 RUN pip install pandas
 RUN pip install numpy
-RUN pip install pip install apache-airflow-providers-apache-spark
+RUN pip install apache-airflow-providers-apache-spark
