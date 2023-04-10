@@ -11,6 +11,8 @@ from google.cloud import storage
 from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateExternalTableOperator
 import pyarrow.csv as pv
 import pyarrow.parquet as pq
+import pandas as pd
+import numpy as np
 
 PROJECT_ID = os.environ.get("GCP_PROJECT_ID")
 BUCKET = os.environ.get("GCP_GCS_BUCKET")
@@ -22,8 +24,8 @@ dataset_url = f"https://drive.google.com/uc?export=download&id=1H-2tQsYXkGUWp_Yb
 path_to_local_home = "/opt/airflow"
 parquet_file = dataset_file.replace('.csv', '.parquet')
 
-dbt_loc = "/opt/airflow/dbt"
-spark_master = "spark://spark:7077"
+#dbt_loc = "/opt/airflow/dbt"
+#spark_master = "spark://spark:7077"
 
 def format_to_parquet(src_file):
     if not src_file.endswith('.csv'):
@@ -53,6 +55,19 @@ def upload_to_gcs(bucket, object_name, local_file):
     blob = bucket.blob(object_name)
     blob.upload_from_filename(local_file)
 
+def cleansing_spark(src_file):
+        
+    df = pd.read_csv(src_file)
+    df=df.assign(YEARS_BIRTH = lambda x: (np.floor(np.absolute(x["DAYS_BIRTH"] / 365.25))), \
+                              YEARS_EMPLOYED=lambda x: np.floor(np.abs(x["DAYS_EMPLOYED"] / 365.25)))\
+                                .drop(["DAYS_BIRTH", "DAYS_EMPLOYED"], axis=1)
+    df['CODE_GENDER'] = df['CODE_GENDER'].apply(lambda x: 1 if x == 'F' else 0)
+    df['FLAG_OWN_CAR'] = df['FLAG_OWN_CAR'].apply(lambda x: 1 if x == 'Y' else 0)
+    df['FLAG_OWN_REALTY'] = df['FLAG_OWN_REALTY'].apply(lambda x: 1 if x == 'Y' else 0)
+    df.dropna(inplace=True)
+
+    df.to_csv("/opt/airflow/application_record.csv", index=False) 
+
 default_args = {
     "owner": "airflow",
     "start_date": days_ago(1),
@@ -63,7 +78,7 @@ default_args = {
 # NOTE: DAG declaration - using a Context Manager (an implicit way)
 with DAG(
     dag_id="data_ingestion_final_project",
-    schedule_interval="@weekly",
+    schedule_interval="@daily",
     default_args=default_args,
     catchup=False,
     max_active_runs=1,
@@ -76,6 +91,14 @@ with DAG(
         #bash_command=f"curl -sSL {dataset_url} > '{path_to_local_home}/{dataset_file}'"           # for smaller files
     )
 
+    spark_cleansing_task = PythonOperator(
+        task_id="spark_cleansing_task",
+        python_callable=cleansing_spark,
+        op_kwargs={
+            "src_file": f"{path_to_local_home}/{dataset_file}",
+        },
+    )
+
     format_to_parquet_task = PythonOperator(
         task_id="format_to_parquet_task",
         python_callable=format_to_parquet,
@@ -83,16 +106,7 @@ with DAG(
             "src_file": f"{path_to_local_home}/{dataset_file}",
         },
     )
-
-    spark_cleansing_task = SparkSubmitOperator(
-        task_id="spark_cleansing_task",
-        application="/usr/local/spark/spark-cleansing.py",
-        name="spark-cleansing",
-        conn_id="spark_default",
-        verbose=1,
-        conf={"spark.master":spark_master},
-        application_args=[parquet_file] ,
-    )
+    
 
     local_to_gcs_task = PythonOperator(
         task_id="local_to_gcs_task",
@@ -122,15 +136,15 @@ with DAG(
         },
     )
     dbt_init_task = BashOperator(
-    task_id="dbt_init_task",
-    bash_command= "cd /dbt && dbt deps && dbt seed --profiles-dir ."
+        task_id="dbt_init_task",
+        bash_command= "cd /dbt/credit_card_dwh && dbt deps && dbt seed --profiles-dir ."
     )
 
     run_dbt_task = BashOperator(
-    task_id="run_dbt_task",
-    bash_command= "cd /dbt && dbt deps && dbt run --profiles-dir ."
+        task_id="run_dbt_task",
+        bash_command= "cd /dbt/credit_card_dwh && dbt deps && dbt run --profiles-dir ."
     )
 
-    download_dataset_task >> format_to_parquet_task >> \
-    spark_cleansing_task >> local_to_gcs_task >> \
+    download_dataset_task >> spark_cleansing_task >> \
+    format_to_parquet_task >> local_to_gcs_task >> \
     bigquery_external_table_task >> dbt_init_task >> run_dbt_task 
