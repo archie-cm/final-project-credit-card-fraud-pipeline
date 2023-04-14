@@ -1,24 +1,24 @@
 credit_card_dwh:
   outputs:
     dev:
-      dataset: raw_credit_card
+      dataset: final_project
       fixed_retries: 1
-      keyfile: /service-account.json
-      location: us-central1
+      keyfile: service-account.json
+      location: us
       method: service-account
       priority: interactive
-      project: "{{ env_var('GCP_PROJECT_ID') }}"
+      project: "data-fellowship-9-project"
       threads: 4
       timeout_seconds: 300
       type: bigquery
     prod:
-      dataset: credit_card_dwh_prod
+      dataset: final_project
       fixed_retries: 1
-      keyfile: /service-account.json
-      location: us-central1
+      keyfile: service-account.json
+      location: us
       method: service-account
       priority: interactive
-      project: "{{ env_var('GCP_PROJECT_ID') }}"
+      project: "data-fellowship-9-project"
       threads: 4
       timeout_seconds: 300
       type: bigquery
