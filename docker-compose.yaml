@@ -1,6 +1,3 @@
-#version: '3.8'
-#name: big-data-tools
-
 version: '3'
 x-airflow-common:
   &airflow-common
@@ -20,7 +17,7 @@ x-airflow-common:
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
     GOOGLE_APPLICATION_CREDENTIALS: /opt/airflow/service-account.json
     AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT: 'google-cloud-platform://?extra__google_cloud_platform__key_path=/opt/airflow/service-account.json'
-    DBT_PROFILES_DIR: /opt/airflow/dbt
+    # DBT_PROFILES_DIR: /opt/airflow/dbt
     # TODO: Please change GCP_PROJECT_ID & GCP_GCS_BUCKET, as per your config
     GCP_PROJECT_ID: 'data-fellowship-9-project'
     GCP_GCS_BUCKET: 'final_project_data_lake_data-fellowship-9-project'
@@ -29,9 +26,8 @@ x-airflow-common:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
     - ./plugins:/opt/airflow/plugins
-    - ../dbt:/dbt
-    - ~/dbt:/dbt
-    - ~/spark:/opt/airflow/spark
+    - ./dbt/credit_card_dwh:/opt/airflow/dbt/credit_card_dwh
+    - ./spark:/opt/airflow/spark
     - ~/.dbt:/home/airflow/.dbt:ro
     - ./service-account.json:/opt/airflow/service-account.json
    
@@ -239,6 +235,6 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
-
+  
 volumes:
   postgres-db-volume:
