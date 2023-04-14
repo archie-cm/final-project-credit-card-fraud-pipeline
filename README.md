@@ -107,6 +107,9 @@ localhost:8090
 
 ![image](https://user-images.githubusercontent.com/108534539/230137434-ca2e097f-2003-4cf1-8578-a1bc69c0f73d.png)
 
+![image](https://user-images.githubusercontent.com/108534539/231919353-46fb7526-6c9e-4bce-a2f1-752ef3c02012.png)
+
+
 ##### Open Spark to monitor Spark master and Spark workers
 ```
 localhost:8080
