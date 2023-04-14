@@ -5,7 +5,8 @@ from airflow import DAG
 from airflow.utils.dates import days_ago
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
-from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
+#from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
+from airflow_dbt_python.operators.dbt import DbtRunOperator
 
 from google.cloud import storage
 from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateExternalTableOperator
@@ -78,7 +79,7 @@ default_args = {
 # NOTE: DAG declaration - using a Context Manager (an implicit way)
 with DAG(
     dag_id="data_ingestion_final_project",
-    schedule_interval="@daily",
+    schedule_interval="@weekly",
     default_args=default_args,
     catchup=False,
     max_active_runs=1,
@@ -137,12 +138,12 @@ with DAG(
     )
     dbt_init_task = BashOperator(
         task_id="dbt_init_task",
-        bash_command= "cd /dbt/credit_card_dwh && dbt deps && dbt seed --profiles-dir ."
+        bash_command= "cd /opt/airflow/dbt/credit_card_dwh && dbt deps && dbt seed --profiles-dir ."
     )
 
     run_dbt_task = BashOperator(
         task_id="run_dbt_task",
-        bash_command= "cd /dbt/credit_card_dwh && dbt deps && dbt run --profiles-dir ."
+        bash_command= "cd /opt/airflow/dbt/credit_card_dwh && dbt deps && dbt run --profiles-dir ."
     )
 
     download_dataset_task >> spark_cleansing_task >> \
