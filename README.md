@@ -95,7 +95,7 @@ terraform apply
 ```
 7. Check GCP console to see newly-created resources.
 
-### batch pipeline
+### Batch Pipeline
 
 1. Setting dbt in profiles.yml
 
@@ -120,7 +120,7 @@ localhost:8080
 ![image](https://user-images.githubusercontent.com/108534539/230136347-1fe5de5e-3585-4b04-8665-a14512f0efe3.png)
 
 
-### Streaming pipeline
+### Streaming Pipeline
 
 1. Enter directory kafka
 ```bash
