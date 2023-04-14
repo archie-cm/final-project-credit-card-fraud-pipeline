@@ -3,7 +3,7 @@ credit_card_dwh:
     dev:
       dataset: final_project
       fixed_retries: 1
-      keyfile: service-account.json
+      keyfile: /opt/airflow/service-account.json
       location: us
       method: service-account
       priority: interactive
@@ -14,7 +14,7 @@ credit_card_dwh:
     prod:
       dataset: final_project
       fixed_retries: 1
-      keyfile: service-account.json
+      keyfile: /opt/airflow/service-account.json
       location: us
       method: service-account
       priority: interactive
