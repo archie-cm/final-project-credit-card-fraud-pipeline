@@ -55,7 +55,7 @@ git clone https://github.com/archie-cm/final-project-credit-card-fraud-pipeline.
 ```
 
 
-### Create a file named "service-account.json" containing your Google service account credentials
+### Create a file named "service-account.json" containing your Google service account credentials and copy file to dbt folder
 ```json
 {
   "type": "service_account",
@@ -70,7 +70,7 @@ git clone https://github.com/archie-cm/final-project-credit-card-fraud-pipeline.
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/[SERVICE_ACCOUNT_EMAIL]"
 }
 ```
-#### Cloud Resource Provisioning with Terraform
+### Cloud Resource Provisioning with Terraform
 
 1. Install `gcloud` SDK, `terraform` CLI, and create a GCP project. Then, create a service account with **Storage Admin**, **Storage Pbject Admin**, and **BigQuery Admin** role. Download the JSON credential and store it on `service-account.json`. Open `terraform/main.tf` in a text editor, and fill your GCP's project id.
 
@@ -95,12 +95,15 @@ terraform apply
 ```
 7. Check GCP console to see newly-created resources.
 
-#### Create batch pipeline with Docker Compose
+### batch pipeline
+
+1. Setting dbt in profiles.yml
+
+2. Create batch pipeline with Docker Compose
 ```bash
 sudo docker-compose up
 ```
-
-##### Open Airflow with username and password "airflow" to run the DAG
+3. Open Airflow with username and password "airflow" to run the DAG
 ```
 localhost:8090
 ```
@@ -110,47 +113,49 @@ localhost:8090
 ![image](https://user-images.githubusercontent.com/108534539/231919353-46fb7526-6c9e-4bce-a2f1-752ef3c02012.png)
 
 
-##### Open Spark to monitor Spark master and Spark workers
+4. Open Spark to monitor Spark master and Spark workers
 ```
 localhost:8080
 ```
 ![image](https://user-images.githubusercontent.com/108534539/230136347-1fe5de5e-3585-4b04-8665-a14512f0efe3.png)
 
 
-#### Enter the directory Streaming pipeline
+### Streaming pipeline
+
+1. Enter directory kafka
 ```bash
 cd kafka
 ```
 
-##### Create streaming pipeline with Docker Compose
+2. Create streaming pipeline with Docker Compose
 ```bash
 sudo docker-compose up
 ```
 
-##### Install required Python packages
+3. Install required Python packages
 ```bash
 pip install -r requirements.txt
 ```
 
-##### Run the producer to stream the data into the Kafka topic
+4. Run the producer to stream the data into the Kafka topic
 ```bash
 python3 producer.py
 ```
 
-##### Run the consumer to consume the data from Kafka topic and load them into BigQuery
+5. Run the consumer to consume the data from Kafka topic and load them into BigQuery
 ```bash
 python3 consumer.py
 ```
 
 ![Screenshot (190)](https://user-images.githubusercontent.com/108534539/230141794-eb04880c-bf5e-4566-aa94-cbe8501e6e3f.png)
 
-##### Open Confluent to view the topic
+6. Open Confluent to view the topic
 ```
 localhost:9021
 ```
 ![image](https://user-images.githubusercontent.com/108534539/230141014-bb9ef28b-af25-4fa8-b49a-ce5ef8f69aa2.png)
 
-##### Open Schema Registry to view the active schemas
+7. Open Schema Registry to view the active schemas
 ```
 localhost:8081/schemas
 ```
