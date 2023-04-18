@@ -5,8 +5,6 @@ from airflow import DAG
 from airflow.utils.dates import days_ago
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
-#from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
-from airflow_dbt_python.operators.dbt import DbtRunOperator
 
 from google.cloud import storage
 from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateExternalTableOperator
@@ -65,7 +63,7 @@ def cleansing_spark(src_file):
     df['CODE_GENDER'] = df['CODE_GENDER'].apply(lambda x: 1 if x == 'F' else 0)
     df['FLAG_OWN_CAR'] = df['FLAG_OWN_CAR'].apply(lambda x: 1 if x == 'Y' else 0)
     df['FLAG_OWN_REALTY'] = df['FLAG_OWN_REALTY'].apply(lambda x: 1 if x == 'Y' else 0)
-    df.dropna(inplace=True)
+    df.dropna(how='all', inplace=True)
 
     df.to_csv("/opt/airflow/application_record.csv", index=False) 
 
