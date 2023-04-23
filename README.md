@@ -23,12 +23,17 @@ The objectives of this projects are described below:
 
 ## Tools
 
-- Orchestration: Airflow
+- Cloud : Google Cloud Platform
+- Infrastructure as Code : Terraform
+- Containerization : Docker, Docker Compose
 - Compute : Virtual Machine (VM) instance
-- Container : Docker
-- Storage: Google Cloud Storage
-- Warehouse: BigQuery
+- Stream Processing : Kafka
+- Orchestration: Airflow
+- Transformation : Spark, dbt
+- Data Lake: Google Cloud Storage
+- Data Warehouse: BigQuery
 - Data Visualization: Looker
+- Language : Python
 
 ## Reproducibility
 ![Screenshot (189)](https://user-images.githubusercontent.com/108534539/230118957-612b63c8-4edd-4aaa-9700-92b439ff870a.png)
