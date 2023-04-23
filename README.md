@@ -10,13 +10,16 @@ The original datasets and data dictionary can be found in [here](https://www.kag
 
 ## Problem Statements
 
-From said back story, we can conclude that the bank want to increase the efficiency of their campaign by targeting client with higher chance of success based on the feature from the data.
+Financial institution is experiencing challenges in managing and analyzing its large volume of credit card applicant data. This makes it difficult to mitigate fraud from credit card applicant data.
 
-## Project Objectives
+## Goal
+To mitigate the possibility of fraud on credit card applicant, a data pipeline is created to facilitate data analysis and reporting application record.
+
+## Obejective
 The objectives of this projects are described below:
-- Create an automated pipeline to flow both batch and stream data from data sources to data warehouses and data marts.
-- Create a visualization dashboard to get insights from the data, which can be used for business decisions.
-- Create an infrastructure as code which makes the codes reusable and scalable for another projects.
+- Design and create end-to-end data pipeline with lambda architecture 
+- Create a data warehouse that can integrate all the credit card applicant data from different sources and provide a single source of truth for the institution's analytics needs
+- Create a visualization dashboard to get insights from the data, which can be used for business decisions and reach goal from this project.
 
 ## Data Pipeline
 ![image](https://user-images.githubusercontent.com/108534539/230115233-4fb03230-53f4-4e25-a70d-11cbd7beb4c8.png)
