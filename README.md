@@ -15,7 +15,7 @@ Financial institution is experiencing challenges in managing and analyzing its l
 ## Goal
 To mitigate the possibility of fraud on credit card applicant, a data pipeline is created to facilitate data analysis and reporting application record.
 
-## Obejective
+## Objective
 The objectives of this projects are described below:
 - Design and create end-to-end data pipeline with lambda architecture 
 - Create a data warehouse that can integrate all the credit card applicant data from different sources and provide a single source of truth for the institution's analytics needs
