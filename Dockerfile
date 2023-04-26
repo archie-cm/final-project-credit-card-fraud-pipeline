@@ -23,14 +23,21 @@ WORKDIR $AIRFLOW_HOME
 
 USER $AIRFLOW_UID
 
-#ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-#USER root
-#RUN apt update -y
-# RUN apt upgrade -y
-#RUN apt install default-jdk -y
-#RUN apt install git -y
+USER root
+
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+USER root
+RUN apt update -y
+RUN apt upgrade -y
+RUN apt install default-jdk -y
+RUN apt install git -y
+
 USER airflow
+RUN pip install dbt-core
 RUN pip install dbt-bigquery
 RUN pip install pandas
 RUN pip install numpy
 RUN pip install apache-airflow-providers-apache-spark
+RUN pip install airflow-dbt-python[bigquery]
+
+COPY --chown=airflow:root ./dags /opt/airflow/dags
