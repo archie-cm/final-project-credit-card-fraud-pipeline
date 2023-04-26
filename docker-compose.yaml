@@ -28,6 +28,7 @@ x-airflow-common:
     - ./plugins:/opt/airflow/plugins
     - ./dbt/credit_card_dwh:/opt/airflow/dbt/credit_card_dwh
     - ./spark:/opt/airflow/spark
+    - ./datasets:/opt/airflow/datasets
     - ~/.dbt:/home/airflow/.dbt:ro
     - ./service-account.json:/opt/airflow/service-account.json
    
