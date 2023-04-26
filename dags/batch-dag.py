@@ -54,18 +54,18 @@ def upload_to_gcs(bucket, object_name, local_file):
     blob = bucket.blob(object_name)
     blob.upload_from_filename(local_file)
 
-def cleansing_spark(src_file):
+#def cleansing_spark(src_file):
         
-    df = pd.read_csv(src_file)
-    df=df.assign(YEARS_BIRTH = lambda x: (np.floor(np.absolute(x["DAYS_BIRTH"] / 365.25))), \
-                              YEARS_EMPLOYED=lambda x: np.floor(np.abs(x["DAYS_EMPLOYED"] / 365.25)))\
-                                .drop(["DAYS_BIRTH", "DAYS_EMPLOYED"], axis=1)
-    df['CODE_GENDER'] = df['CODE_GENDER'].apply(lambda x: 1 if x == 'F' else 0)
-    df['FLAG_OWN_CAR'] = df['FLAG_OWN_CAR'].apply(lambda x: 1 if x == 'Y' else 0)
-    df['FLAG_OWN_REALTY'] = df['FLAG_OWN_REALTY'].apply(lambda x: 1 if x == 'Y' else 0)
-    df.dropna(how='all', inplace=True)
+    #df = pd.read_csv(src_file)
+    #df=df.assign(YEARS_BIRTH = lambda x: (np.floor(np.absolute(x["DAYS_BIRTH"] / 365.25))), \
+    #                          YEARS_EMPLOYED=lambda x: np.floor(np.abs(x["DAYS_EMPLOYED"] / 365.25)))\
+    #                            .drop(["DAYS_BIRTH", "DAYS_EMPLOYED"], axis=1)
+    #df['CODE_GENDER'] = df['CODE_GENDER'].apply(lambda x: 1 if x == 'F' else 0)
+    #df['FLAG_OWN_CAR'] = df['FLAG_OWN_CAR'].apply(lambda x: 1 if x == 'Y' else 0)
+    #df['FLAG_OWN_REALTY'] = df['FLAG_OWN_REALTY'].apply(lambda x: 1 if x == 'Y' else 0)
+    #df.dropna(how='all', inplace=True)
 
-    df.to_csv("/opt/airflow/application_record.csv", index=False) 
+    #df.to_csv("/opt/airflow/application_record.csv", index=False) 
 
 default_args = {
     "owner": "airflow",
@@ -90,12 +90,9 @@ with DAG(
         #bash_command=f"curl -sSL {dataset_url} > '{path_to_local_home}/{dataset_file}'"           # for smaller files
     )
 
-    spark_cleansing_task = PythonOperator(
+    spark_cleansing_task = BashOperator(
         task_id="spark_cleansing_task",
-        python_callable=cleansing_spark,
-        op_kwargs={
-            "src_file": f"{path_to_local_home}/{dataset_file}",
-        },
+        bash_command="cd /opt/airflow/spark && python3 spark-cleansing.py"
     )
 
     format_to_parquet_task = PythonOperator(
