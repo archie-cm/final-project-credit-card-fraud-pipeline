@@ -21,16 +21,22 @@ sc.setLogLevel("WARN")
 ####################################
 # path file
 ####################################
-parquet_file = "/opt/airflow/datasets/application_record.parquet"
+csv_file = "/opt/airflow/application_record.csv"
 
 ####################################
-# Read parquet Data
+# Read csv Data
 ####################################
 print("######################################")
-print("READING PARQUET FILE")
+print("READING CSV FILE")
 print("######################################")
 
-df = spark.read.parquet(parquet_file, header=True, inferSchema=True)
+df = (
+    spark.read
+    .format("csv")
+    .option("sep", ",")
+    .option("header", True)
+    .load(csv_file)
+)
 
 ####################################
 # Format Standarization
@@ -61,18 +67,10 @@ df_transform3 = df_transform2.na.drop("all")
 # Save Data
 ####################################
 print("######################################")
-print("UPLOAD TO BIGQUERY")
+print("SAVE DATA")
 print("######################################")
 
-df_transform3_gbq = df_transform3.toPandas()
-
-# TODO: Set project_id to your Google Cloud Platform project ID.
-project_id = "data-fellowship-9-project"
-
-# TODO: Set dataset_id to the full destination dataset ID.
-table_id = 'final_project.raw_credit_card'
-
-pandas_gbq.to_gbq(df_transform3_gbq, table_id, project_id=project_id)
+df_transform4 = df_transform3.toPandas().to_csv("/opt/airflow/application_record.csv", index=False)
 
 print("######################################")
 print("SUCCESS")
