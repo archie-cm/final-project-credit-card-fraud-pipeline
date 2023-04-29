@@ -17,4 +17,4 @@ SELECT
     CNT_FAM_MEMBERS,
     YEARS_BIRTH,
     YEARS_EMPLOYED
-FROM {{ source('final_project', 'external_table') }}
+FROM {{ source('final_project', 'raw_credit_card') }}
