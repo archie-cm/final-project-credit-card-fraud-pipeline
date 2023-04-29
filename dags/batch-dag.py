@@ -7,7 +7,7 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 
 from google.cloud import storage
-from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateExternalTableOperator
+from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateExternalTableOperator, BigQueryOperator
 import pyarrow.csv as pv
 import pyarrow.parquet as pq
 import pandas as pd
@@ -65,7 +65,12 @@ def upload_to_gcs(bucket, object_name, local_file):
     #df['FLAG_OWN_REALTY'] = df['FLAG_OWN_REALTY'].apply(lambda x: 1 if x == 'Y' else 0)
     #df.dropna(how='all', inplace=True)
 
-    #df.to_csv("/opt/airflow/application_record.csv", index=False) 
+    #df.to_csv("/opt/airflow/application_record.csv", index=False)
+    
+query = """CREATE OR REPLACE EXTERNAL TABLE final_project.raw_credit_card
+OPTIONS(
+  "sourceFormat": "PARQUET",
+  "sourceUris": [f"gs://{BUCKET}/raw/{parquet_file}"], """
 
 default_args = {
     "owner": "airflow",
@@ -131,6 +136,13 @@ with DAG(
             },
         },
     )
+    
+    bigquery_raw_task = BigQueryOperator(
+        task_id="bigquery_raw_task",
+        sql=query,
+        use_legacy_sql=False,
+    )
+    
     dbt_init_task = BashOperator(
         task_id="dbt_init_task",
         bash_command= "cd /opt/airflow/dbt/credit_card_dwh && dbt deps && dbt seed --profiles-dir ."
@@ -143,4 +155,5 @@ with DAG(
 
     download_dataset_task >> spark_cleansing_task >> \
     format_to_parquet_task >> local_to_gcs_task >> \
-    bigquery_external_table_task >> dbt_init_task >> run_dbt_task 
+    bigquery_external_table_task >> bigquery_raw_task >> \
+    dbt_init_task >> run_dbt_task 
