@@ -108,7 +108,6 @@ with DAG(
         },
     )
     
-
     local_to_gcs_task = PythonOperator(
         task_id="local_to_gcs_task",
         python_callable=upload_to_gcs,
